@@ -7,6 +7,7 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("javax.servlet:javax.servlet-api:3.1.0")
 	}
 }
 
@@ -16,7 +17,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'war'
 
 group = 'user-management'
-version = '0.0.1-SNAPSHOT'
+version = '1'
 sourceCompatibility = 1.8
 
 repositories {
@@ -29,8 +30,13 @@ configurations {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
+			{
+				exclude module: "spring-boot-starter-tomcat"
+			}
 	runtime('org.springframework.boot:spring-boot-devtools')
 	compileOnly('org.projectlombok:lombok')
-	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+
 }

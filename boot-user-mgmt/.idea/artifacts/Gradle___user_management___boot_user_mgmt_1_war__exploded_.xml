@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="Gradle : user-management : boot-user-mgmt-0.0.1-SNAPSHOT.war (exploded)">
-    <output-path>$PROJECT_DIR$/build/libs/exploded/boot-user-mgmt-0.0.1-SNAPSHOT.war</output-path>
+  <artifact type="exploded-war" name="Gradle : user-management : boot-user-mgmt-1.war (exploded)">
+    <output-path>$PROJECT_DIR$/build/libs/exploded/boot-user-mgmt-1.war</output-path>
     <properties id="gradle-properties">
       <options external-project-path="$PROJECT_DIR$">
         <manifest>TWFuaWZlc3QtVmVyc2lvbjogMS4wDQoNCg==</manifest>
@@ -8,9 +8,9 @@
     </properties>
     <root id="root">
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/build/libs/exploded/boot-user-mgmt-0.0.1-SNAPSHOT.war/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/build/libs/exploded/boot-user-mgmt-1.war/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="boot-user-mgmt_main/web/Web Gradle : boot-user-mgmt-0.0.1-SNAPSHOT.war" />
+      <element id="javaee-facet-resources" facet="boot-user-mgmt_main/web/Web Gradle : boot-user-mgmt-1.war" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="boot-user-mgmt_main" />
@@ -19,8 +19,8 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-web:1.5.9.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter:1.5.9.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.hibernate:hibernate-validator:5.3.6.Final" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-devtools:1.5.9.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.hibernate:hibernate-validator:5.3.6.Final" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.8.10" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.3.13.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.3.13.RELEASE" />
