@@ -1,25 +1,27 @@
-#Global
-bin/
-target/
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
 
-#Intellij
-.idea/
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
 
-#Netbeans
+### IntelliJ IDEA ###
+*.iws
+*.iml
+*.ipr
+out/
+build/
+.gradle
+
+### NetBeans ###
 nbproject/private/
 build/
 nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-
-#Eclipse/STS
-.classpath
-.settings
-.project
-
-#Gradle
-gradle/
-settings.gradle
-gradlew
-gradlew.bat

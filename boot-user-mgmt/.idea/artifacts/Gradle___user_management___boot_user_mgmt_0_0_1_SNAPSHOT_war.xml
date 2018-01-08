@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Gradle : user-management : boot-user-mgmt-0.0.1-SNAPSHOT.war">
+    <output-path>$PROJECT_DIR$/build/libs</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$" />
+    </properties>
+    <root id="archive" name="boot-user-mgmt-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Gradle : user-management : boot-user-mgmt-0.0.1-SNAPSHOT.war (exploded)" />
+    </root>
+  </artifact>
+</component>
