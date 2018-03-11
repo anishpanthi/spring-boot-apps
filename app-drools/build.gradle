@@ -1,0 +1,59 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.10.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("javax.servlet:javax.servlet-api:3.0.1")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+    maven {
+        name 'jboss'
+        url 'http://repository.jboss.org/nexus/content/groups/public-jboss'
+    }
+}
+
+configurations {
+	providedRuntime
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+            {
+                exclude module: "spring-boot-starter-tomcat"
+            }
+	runtime('org.springframework.boot:spring-boot-devtools')
+
+    compile group: 'org.kie', name: 'kie-api', version: '7.6.0.Final'
+    compile group: 'org.drools', name: 'drools-core', version: '7.6.0.Final'
+    compile group: 'org.drools', name: 'drools-compiler', version: '7.6.0.Final'
+    compile group: 'org.kie', name: 'kie-ci', version: '7.6.0.Final'
+	compile group: 'org.drools', name: 'drools-decisiontables', version: '7.6.0.Final'
+
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.8.0'
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.8.0'
+
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+
+//	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+war{
+	baseName = 'app-drools-api'
+	version = '1.0'
+}
