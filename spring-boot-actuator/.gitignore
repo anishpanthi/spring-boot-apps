@@ -1,0 +1,9 @@
+#IntellijIDEA Files
+.gradle
+.idea
+/build
+/gradle
+/out
+gradlew
+gradlew.bat
+*.imp
