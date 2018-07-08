@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.maven:maven-model-builder:3.3.9">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-model-builder/3.3.9/e2055f9adb9f3c9a93e6b36fffe79781a785de2d/maven-model-builder-3.3.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-model-builder/3.3.9/f05f8839f69f3a02d38558a4b11a8ae9827689dc/maven-model-builder-3.3.9-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

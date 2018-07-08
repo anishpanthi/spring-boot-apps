@@ -1,54 +1,25 @@
 package com.app.boot.swagger2.model;
 
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
+    @ApiModelProperty(notes = "User's First Name", position = 0)
     private String firstName;
 
+    @ApiModelProperty(notes = "User's Last Name", position = 1)
     private String lastName;
 
+    @ApiModelProperty(notes = "User's Email address.", position = 2)
     private String email;
 
+    @ApiModelProperty(notes = "User's Phone number", position = 3)
     private String phone;
 
-    public User() {
-    }
-
-    public User(String firstName, String lastName, String email, String phone) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phone = phone;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 }

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.eclipse.sisu:org.eclipse.sisu.inject:0.3.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.sisu/org.eclipse.sisu.inject/0.3.2/59044b92ec27cc6fda7a2d24b2cd6cec23f31d5b/org.eclipse.sisu.inject-0.3.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.sisu/org.eclipse.sisu.inject/0.3.2/40ee2c0df44216015c6af02f68632e97f6255b95/org.eclipse.sisu.inject-0.3.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -16,10 +16,11 @@
 *.iws
 *.iml
 *.ipr
-/gradle/
+gradle/
 gradlew
 gradlew.bat
-/out/
+out/
+build/
 
 ### NetBeans ###
 nbproject/private/

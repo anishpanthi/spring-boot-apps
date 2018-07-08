@@ -33,7 +33,7 @@ public class SwaggerConfig {
     private String basePackage;
 
     @Bean
-    public Docket preVerificationCoreApi() {
+    public Docket swaggerApi() {
         return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.basePackage(basePackage))
                 .paths(PathSelectors.ant("/**")).build().apiInfo(metaData());
     }

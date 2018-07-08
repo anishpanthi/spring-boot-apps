@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.maven:maven-repository-metadata:3.3.9">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-repository-metadata/3.3.9/6850232b35e504057d67bde11efddebf6271e1ce/maven-repository-metadata-3.3.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-repository-metadata/3.3.9/b40e69094173f699ee941158b425867173157c2/maven-repository-metadata-3.3.9-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
