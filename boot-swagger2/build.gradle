@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.0.RELEASE'
+		springBootVersion = '2.0.3.RELEASE'
 	}
 	repositories {
         mavenLocal()
@@ -23,7 +23,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 war{
-    baseName = 'swagger2-demo'
+    baseName = 'boot-swagger2'
     version = '1.0'
 }
 
@@ -40,11 +40,11 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	runtime('org.springframework.boot:spring-boot-devtools')
 
-    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
+    compile('org.projectlombok:lombok:1.18.0')
 
     //Add Swagger2 dependencies
-    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.8.0'
-    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.8.0'
+    compile('io.springfox:springfox-swagger2:2.9.2')
+	compile('io.springfox:springfox-swagger-ui:2.9.2')
 
     providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
