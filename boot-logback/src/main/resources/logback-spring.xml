@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <springProperty scope="context" name="LOG_PATH" source="log.path"
-                    defaultValue="/Users/anish/Desktop"/>
+    <springProperty scope="context" name="LOG_PATH" source="log.path" defaultValue="/Users/anish/Desktop"/>
 
     <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -11,7 +10,7 @@
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>DEBUG</level>
-            <onMatch>DENY</onMatch>
+            <onMatch>ACCEPT</onMatch>
         </filter>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>INFO</level>
@@ -19,7 +18,7 @@
         </filter>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>TRACE</level>
-            <onMatch>DENY</onMatch>
+            <onMatch>ACCEPT</onMatch>
         </filter>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>WARN</level>
@@ -59,11 +58,10 @@
     </appender>
 
     <springProfile name="local,dev">
-        <appender name="Dev-FileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-            <file>${LOG_PATH}/logs/boot-logback-access.log</file>
+        <appender name="accessLogFileAppender4Dev" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${LOG_PATH}/boot-logback-access.log</file>
             <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <!-- daily rollover -->
-                <fileNamePattern>${LOG_PATH}/logs/boot-logback-access.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+                <fileNamePattern>${LOG_PATH}/boot-logback-access.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
                 <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                     <maxFileSize>5MB</maxFileSize>
                 </timeBasedFileNamingAndTriggeringPolicy>
@@ -94,16 +92,16 @@
             </filter>
         </appender>
 
-        <appender name="Async-Dev-FileAppender" class="ch.qos.logback.classic.AsyncAppender">
-            <appender-ref ref="Dev-FileAppender"/>
+        <appender name="Async-accessLogFileAppender4Dev" class="ch.qos.logback.classic.AsyncAppender">
+            <appender-ref ref="accessLogFileAppender4Dev"/>
         </appender>
     </springProfile>
 
     <springProfile name="test,prod">
-        <appender name="Access-FileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-            <file>${LOG_PATH}/logs/boot-logback-access.log</file>
+        <appender name="accessLogFileAppender4TestAndProd" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${LOG_PATH}/boot-logback-access.log</file>
             <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <fileNamePattern>${LOG_PATH}/logs/boot-logback-access.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+                <fileNamePattern>${LOG_PATH}/boot-logback-access.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
                 <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                     <maxFileSize>5MB</maxFileSize>
                 </timeBasedFileNamingAndTriggeringPolicy>
@@ -118,7 +116,7 @@
             </filter>
             <filter class="ch.qos.logback.classic.filter.LevelFilter">
                 <level>INFO</level>
-                <onMatch>DENY</onMatch>
+                <onMatch>ACCEPT</onMatch>
             </filter>
             <filter class="ch.qos.logback.classic.filter.LevelFilter">
                 <level>TRACE</level>
@@ -134,16 +132,16 @@
             </filter>
         </appender>
 
-        <appender name="Async-Access-FileAppender" class="ch.qos.logback.classic.AsyncAppender">
-            <appender-ref ref="Access-FileAppender"/>
+        <appender name="Async-accessLogFileAppender4TestAndProd" class="ch.qos.logback.classic.AsyncAppender">
+            <appender-ref ref="accessLogFileAppender4TestAndProd"/>
         </appender>
 
     </springProfile>
 
-    <appender name="Error-Appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_PATH}/logs/boot-logback.log</file>
+    <appender name="errorLogFileAppender4All" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/boot-logback-error.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PATH}/logs/boot-logback.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_PATH}/boot-logback-error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>5MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
@@ -176,32 +174,32 @@
 
     <root>
         <level value="DEBUG"/>
-        <appender-ref ref="Local-ConsoleAppender"/>
+        <appender-ref ref="consoleAppender"/>
     </root>
 
-    <appender name="Async-Error-Appender" class="ch.qos.logback.classic.AsyncAppender">
-        <appender-ref ref="Error-Appender"/>
+    <appender name="Async-errorLogFileAppender4All" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="errorLogFileAppender4All"/>
     </appender>
 
     <springProfile name="local">
         <logger name="com.app.boot.logback" level="DEBUG" additivity="false">
-            <appender-ref ref="Local-ConsoleAppender"/>
-            <appender-ref ref="Async-Dev-FileAppender"/>
-            <appender-ref ref="Async-Error-Appender"/>
+            <appender-ref ref="consoleAppender"/>
+            <appender-ref ref="Async-accessLogFileAppender4Dev"/>
+            <appender-ref ref="Async-errorLogFileAppender4All"/>
         </logger>
     </springProfile>
 
     <springProfile name="dev">
         <logger name="com.app.boot.logback" level="DEBUG" additivity="false">
-            <appender-ref ref="Async-Dev-FileAppender"/>
-            <appender-ref ref="Async-Error-Appender"/>
+            <appender-ref ref="Async-accessLogFileAppender4Dev"/>
+            <appender-ref ref="Async-errorLogFileAppender4All"/>
         </logger>
     </springProfile>
 
     <springProfile name="test,prod">
-        <logger name="com.app.boot.logback" level="INFO" additivity="true">
-            <appender-ref ref="Async-Access-FileAppender"/>
-            <appender-ref ref="Async-Error-Appender"/>
+        <logger name="com.app.boot.logback" level="INFO" additivity="false">
+            <appender-ref ref="Async-accessLogFileAppender4TestAndProd"/>
+            <appender-ref ref="Async-errorLogFileAppender4All"/>
         </logger>
     </springProfile>
 </configuration>

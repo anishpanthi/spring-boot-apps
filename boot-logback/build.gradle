@@ -1,12 +1,14 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.3.RELEASE'
+        springBootVersion = '2.0.3.RELEASE'             // This version is compatible with WebLogic 12.2.1.3
+//        springBootVersion = '1.5.12.RELEASE'          // This is for WebLogic version less than 12.1.3
     }
     repositories {
         mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+//        classpath("javax.servlet:javax.servlet-api:4.0.0")    //Required for WebLogic deployment
     }
 }
 
@@ -30,10 +32,15 @@ configurations {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
+            {
+//                exclude module: "spring-boot-starter-tomcat"      // Required for WebLogic Deployment
+            }
 
     compile('org.projectlombok:lombok:1.18.0')
 
     runtime('org.springframework.boot:spring-boot-devtools')
-    providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+    providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')      // Comment this for WebLogic Deployment
     testCompile('org.springframework.boot:spring-boot-starter-test')
+
+//    providedCompile 'javax.servlet:javax.servlet-api:4.0.0'       // Required to build for WebLogic artifact.
 }

@@ -11,9 +11,9 @@ public class BootLogbackApplication {
     public static void main(String[] args) {
         SpringApplication.run(BootLogbackApplication.class, args);
 
-        log.debug("This is debug log.");
-        log.info("This is info log.");
-        log.warn("This is warn log.");
-        log.error("This is error log.");
+        log.debug("Hello, I'm DEBUG message.");
+        log.info("Hello, I'm INFO message.");
+        log.warn("Hello, I'm WARN message.");
+        log.error("Hello, I'm ERROR message.");
     }
 }
