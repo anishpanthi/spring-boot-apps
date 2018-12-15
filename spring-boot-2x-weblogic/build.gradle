@@ -1,0 +1,46 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.1.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("javax.servlet:javax.servlet-api:4.0.1")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
+
+group = 'com.app'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    providedRuntime
+    compile.exclude module: 'spring-boot-starter-tomcat'
+    all*.exclude module: 'spring-boot-starter-logging'
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+
+    providedCompile('javax.servlet:javax.servlet-api:4.0.1')
+
+    compile('javax.el:javax.el-api:3.0.0')
+    compile('javax.validation:validation-api:2.0.1.Final')
+    compile('org.hibernate:hibernate-validator:5.4.1.Final')
+
+    providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}

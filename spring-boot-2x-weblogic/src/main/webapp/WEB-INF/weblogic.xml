@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wls:weblogic-web-app xmlns:wls="http://xmlns.oracle.com/weblogic/weblogic-web-app"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd
+                      http://xmlns.oracle.com/weblogic/weblogic-web-app
+                      http://xmlns.oracle.com/weblogic/weblogic-web-app/1.4/weblogic-web-app.xsd">
+    <wls:weblogic-version>12.1.3</wls:weblogic-version>
+    <wls:context-root>app/api</wls:context-root>
+    <wls:container-descriptor>
+        <wls:prefer-application-packages>
+            <wls:package-name>org.slf4j.*</wls:package-name>
+            <wls:package-name>org.codehaus.stax2.*</wls:package-name>
+            <wls:package-name>com.google.common.*</wls:package-name>
+            <wls:package-name>org.bouncycastle.*</wls:package-name>
+            <wls:package-name>javax.persistence.*</wls:package-name>
+            <wls:package-name>javassist</wls:package-name>
+
+            <!--Add Application Provided Validation Library-->
+            <wls:package-name>javax.validation.*</wls:package-name>
+            <wls:package-name>javax.validation.bootstrap.*</wls:package-name>
+            <wls:package-name>javax.validation.constraints.*</wls:package-name>
+            <wls:package-name>javax.validation.groups.*</wls:package-name>
+            <wls:package-name>javax.validation.metadata.*</wls:package-name>
+            <wls:package-name>javax.validation.spi.*</wls:package-name>
+
+            <!--Add Application Provided Hibernate Library-->
+            <wls:package-name>org.hibernate.*</wls:package-name>
+            <wls:package-name>org.hibernate.ejb.*</wls:package-name>
+            <wls:package-name>org.hibernate.jpa.*</wls:package-name>
+            <wls:package-name>org.hibernate.validator.*</wls:package-name>
+            <wls:package-name>org.hibernate.validator.internal.*</wls:package-name>
+            <wls:package-name>org.hibernate.validator.internal.engine.*</wls:package-name>
+            <wls:package-name>org.hibernate.validator.internal.engine.resolver.*</wls:package-name>
+        </wls:prefer-application-packages>
+        <wls:prefer-application-resources>
+            <wls:resource-name>org.springframework.*</wls:resource-name>
+            <wls:resource-name>javax.persistence.*</wls:resource-name>
+            <wls:resource-name>javax.validation.*</wls:resource-name>
+            <wls:resource-name>org.hibernate.*</wls:resource-name>
+            <wls:resource-name>org.hibernate.jpa.*</wls:resource-name>
+            <wls:resource-name>org.hibernate.jpa.HibernatePersistenceProvider</wls:resource-name>
+        </wls:prefer-application-resources>
+    </wls:container-descriptor>
+</wls:weblogic-web-app>
