@@ -1,0 +1,85 @@
+---
+spring:
+  profiles:
+    active: local
+  application:
+    name: account-service
+  # Spring Boot Actuator and Spring Boot Client Configurations
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090/app/api/dashboard
+        instance:
+          health-url: http://localhost:9092/app/api/actuator/health
+          management-base-url: http://localhost:9092/app/api
+  # Spring Data Source Configurations
+  datasource:
+    url: jdbc:mysql://localhost:3306/user_management?serverTimezone=UTC&createDatabaseIfNotExist=true&useLegacyDatatimeCode=false
+    username: root
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 9092
+  servlet:
+    context-path: /app/api
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+  info:
+    git:
+      mode: simple
+
+swagger:
+  api:
+    title: user-account-api
+    description: API which demos CRUD operations on User
+    termsOfServiceUrl: http://blog.anishpanthi.net
+    version: 1.0
+    controller:
+      basepackage: com.app.user.account.api.controller
+
+jwt:
+  validate: true
+  header: authorization
+  secret: wcml2yxr-ab34-12rg-34is-wi9ejd749ksi
+
+logging:
+  level:
+    root: INFO
+    com.app.api: INFO
+    org.hibernate: INFO
+
+#Eureka Client Configurations
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVICE_URL:http://localhost:9090}/app/api/eureka/
+  instance:
+    prefer-ip-address: true
+    health-check-url: http://localhost:9092/app/api/actuator/health
+    status-page-url: http://localhost:9092/app/api/actuator/info
+    hostname: localhost
+    non-secure-port: 80
+    lease-renewal-interval-in-seconds: 10
+
+#Custom Info Endpoint Details
+info:
+  app:
+    name: User-Account-API
+    description: Serves functionaly for basic CRUD Operation. Also Authenticate Users. Allows user to view their account details
+    version: 1.0

@@ -1,0 +1,5 @@
+insert into user_tbl(id, first_name, last_name, email, contact, username, password) values(1,'Anish', 'Panthi', 'anish@gmail.com', '1234567890', 'anish.panthi', 'anish123');
+insert into user_tbl(id, first_name, last_name, email, contact, username, password) values(2,'Aditi', 'Panthi', 'aditi@gmail.com', '2345678901', 'aditi.panthi', 'aditi123');
+insert into user_tbl(id, first_name, last_name, email, contact, username, password) values(3,'Yubraj', 'Pokharel', 'uraj@gmail.com', '3456789012', 'yubraj.pokharel', 'yubraj123');
+insert into user_tbl(id, first_name, last_name, email, contact, username, password) values(4,'Ravi', 'Lamichhane', 'ravi@gmail.com', '4567890123', 'ravi.lamichhane', 'ravi123');
+insert into user_tbl(id, first_name, last_name, email, contact, username, password) values(5,'Laxman', 'Thapa', 'laxman@gmail.com', '5678901234', 'laxman.thapa', 'laxman123');

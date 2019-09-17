@@ -1,0 +1,76 @@
+---
+spring:
+  profiles:
+    active: local
+  application:
+    name: service-discovery
+  #Spring Boot Actuator and Spring Boot Client Configurations
+  boot:
+    admin:
+      client:
+        url: http://service-discovery.cfapps.io/app/api/dashboard
+        instance:
+          health-url: http://user-service.cfapps.io/app/api/actuator/health
+          management-base-url: http://user-service.cfapps.io/app/api
+
+server:
+  port: 9091
+  servlet:
+    context-path: /app/api
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+  info:
+    git:
+      mode: simple
+  cloudfoundry:
+    skip-ssl-validation: true
+
+swagger:
+  api:
+    title: user-management-api
+    description: API which demos CRUD operations on User
+    termsOfServiceUrl: http://blog.anishpanthi.net
+    version: 1.0
+    controller:
+      basepackage: com.app.api.controller
+
+jwt:
+  validate: true
+  header: authorization
+  secret: wcml2yxr-ab34-12rg-34is-wi9ejd749ksi
+
+logging:
+  level:
+    root: INFO
+    com.app.api: INFO
+    org.hibernate: INFO
+
+#Eureka Client Configurations
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVICE_URL:http://service-discovery.cfapps.io}/app/api/eureka/
+  instance:
+    prefer-ip-address: true
+    health-check-url: http://user-service.cfapps.io/app/api/actuator/health
+    status-page-url: http://user-service.cfapps.io/app/api/actuator/info
+    hostname: ${vcap.application.urls[0]}
+    non-secure-port: 80
+    metadata-map:
+      applicationId: ${vcap.application.application_id}
+      instanceId: ${vcap.application.instance_index}
+    lease-renewal-interval-in-seconds: 10
+
+#Custom Info Endpoint Details
+info:
+  app:
+    name: User-Management-API
+    description: Serves functionaly for basic CRUD Operation. Also Authenticate Users.
+    version: 1.0

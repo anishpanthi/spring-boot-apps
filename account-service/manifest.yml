@@ -1,0 +1,11 @@
+---
+applications:
+  - name: accountservices
+    memory: 1G
+    instances: 2
+    random-route: false
+    host: accountservices
+    buildpack: https://github.com/cloudfoundry/java-buildpack.git
+    path: ./build/libs/user-service-1.0.jar
+    services:
+      - mysql
